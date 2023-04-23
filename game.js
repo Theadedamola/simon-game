@@ -9,7 +9,16 @@ var level = 0;
 
 var started = false;
 
-$("*").keydown(function(){
+$(".start-btn").click(function(){
+    if (!started) {
+
+        $("#level-title").html("Level " + level);
+        nextSequence();
+        started = true;
+    }
+    
+})
+$(".restart-btn").click(function(){
     if (!started) {
 
         $("#level-title").html("Level " + level);
@@ -79,7 +88,8 @@ function checkAnswer(currentLevel){
         setTimeout(function(){
             $("*").removeClass("game-over");
         }, 200);
-        $("#level-title").html("Game Over, Press Any Key to Restart ");
+        $("#level-title").html("Game Over, Press Restart");
+        $(".restart-btn").show();
         startOver();
     }
 }
@@ -90,3 +100,8 @@ function startOver(){
     started = false;
     userClickedPattern = [];
 }
+
+$(".help").click(function(){
+    $(".inst-cont").toggle();
+    
+})
