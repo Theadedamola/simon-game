@@ -24,6 +24,7 @@ body {
   border: 0;
   border-radius: 8px;
   background-color: rgb(68, 255, 47);
+  color: #011F3F;
 }
 .restart-btn{
   display: none;
