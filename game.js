@@ -15,6 +15,7 @@ $(".start-btn").click(function(){
         $("#level-title").html("Level " + level);
         nextSequence();
         started = true;
+        $(".start-btn").hide();
     }
     
 })
@@ -24,6 +25,7 @@ $(".restart-btn").click(function(){
         $("#level-title").html("Level " + level);
         nextSequence();
         started = true;
+        $(".restart-btn").hide();
     }
     
 })

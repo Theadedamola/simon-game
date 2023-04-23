@@ -8,7 +8,7 @@ body {
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
-  margin:  1% 5% 5% 5%;
+  margin:  1% 5% 1% 5%;
   color: #FEF2BF;
   line-height: 1.5;
 }
@@ -27,6 +27,7 @@ body {
 }
 .restart-btn{
   display: none;
+  margin: auto;
 }
 
 .help{
@@ -73,7 +74,7 @@ h2{
 }
 
 .container {
-  display: block;
+  display: flex;
   width: 50%;
   margin: auto;
 
@@ -112,4 +113,66 @@ h2{
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+@media (max-width: 768px) {
+  body{
+    margin: auto;
+  }
+  #level-title {
+    margin: 5% auto;
+    font-size: 20px;
+    width: 100%;
+  }
+  .container{
+    width: 100%;
+  }
+  .start-btn, .restart-btn{
+    padding-top: 14px;
+    padding-left: 22px;
+    padding-bottom: 14px;
+    padding-right: 22px;
+  }
+  .instructions{
+    padding: 16px 100px;
+    margin: 25% auto;
+  }
+  p{
+    width: 100%;
+    line-height: 2;
+  }
+}
+
+
+@media (max-width: 428px) {
+  #level-title {
+    margin: 5% auto;
+    font-size: 16px;
+    width: 100%;
+  }
+  .container{
+    margin: 5% auto;
+  }
+  .btn {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+  }
+  .help {
+    right: 7%;
+    bottom: 2%;
+  }
+  .instructions{
+    padding: 16px 40px;
+    margin: 25% auto;
+    width: 60%;
+  }
+  h2{
+    font-size: 16px;
+  }
+  p{
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
