@@ -7,12 +7,17 @@ var userClickedPattern = [];
 
 var level = 0;
 
+var highscore = 0;
+
+
 var started = false;
+
 
 $(".start-btn").click(function(){
     if (!started) {
 
         $("#level-title").html("Level " + level);
+        $(".dis-hs").html("Highscore: " + highscore); 
         nextSequence();
         started = true;
         $(".start-btn").hide();
@@ -23,6 +28,7 @@ $(".restart-btn").click(function(){
     if (!started) {
 
         $("#level-title").html("Level " + level);
+        $(".dis-hs").html("Highscore: " + highscore); 
         nextSequence();
         started = true;
         $(".restart-btn").hide();
@@ -47,6 +53,15 @@ function nextSequence(){
     level++;
 
     $("#level-title").html("Level " + level);
+    
+    while (level > highscore){
+        highscore++;
+        localStorage.setItem("highscore", 0);
+    
+        localStorage.getItem("highscore", highscore);
+        $(".dis-hs").html("Highscore: " + highscore);  
+    }
+    
 
     var randomNumber = Math.floor((Math.random() * 4));
 
@@ -59,6 +74,7 @@ function nextSequence(){
     playSound(randomChosenColor);
 
 }
+
 
 function playSound(name) {
     var audio = new Audio("sounds/" + name + ".mp3");
@@ -95,6 +111,8 @@ function checkAnswer(currentLevel){
         startOver();
     }
 }
+
+
 
 function startOver(){
     level = 0;
