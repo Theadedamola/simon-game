@@ -7,11 +7,11 @@ var userClickedPattern = [];
 
 var level = 0;
 
-var highscore = 0;
-
+var highscore = localStorage.getItem("highscore", highscore);
 
 var started = false;
 
+$(".dis-hs").html("Highscore: " + highscore);
 
 $(".start-btn").click(function(){
     if (!started) {
@@ -54,14 +54,7 @@ function nextSequence(){
 
     $("#level-title").html("Level " + level);
     
-    while (level > highscore){
-        highscore++;
-        localStorage.setItem("highscore", 0);
-    
-        localStorage.getItem("highscore", highscore);
-        $(".dis-hs").html("Highscore: " + highscore);  
-    }
-    
+    score();
 
     var randomNumber = Math.floor((Math.random() * 4));
 
@@ -74,7 +67,15 @@ function nextSequence(){
     playSound(randomChosenColor);
 
 }
-
+function score(){
+    while (level > highscore){
+        highscore = level;
+        localStorage.setItem("highscore", highscore);
+    
+        
+        $(".dis-hs").html("Highscore: " + highscore);  
+    }
+}
 
 function playSound(name) {
     var audio = new Audio("sounds/" + name + ".mp3");
